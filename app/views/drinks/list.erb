@@ -1,0 +1,10 @@
+
+
+
+<h2>Select drinks to order below:</h2>
+<form action='/customers/add' method='POST'>
+<%Drink.all.each do |drink|%>
+<input type="checkbox" name="customer[tabulation]"><%=drink[:name]%> - $<%=drink[:price]%></input></br>
+<%end%> 
+<input type="submit" value="Submit Order">
+</form>

@@ -1,1 +1,43 @@
-Layout page
+<!doctype html>
+<html>
+  <head>
+    <title>Mobile Order</title>
+  </head>
+  <body>
+    <%if logged_in?%>
+
+     <div>
+     <section>
+     <h1 class="aligncenter">BarMania</h1>
+      <p class="alignright">
+      <%=current_user.username%></br>
+      <a href="/account">Account</a></br>
+      <a href="/customers">Home</a></br>
+      <a href="/logout">logout</a>
+      </p>
+     </section>
+     </div>
+      <%=yield%>
+                                              <style>
+                                              .alignleft {
+                                                float: left;
+                                                }
+                                              .alignright {
+                                                float: right;
+                                                }
+                                              .aligncenter {
+                                                text-align: center;
+                                                }
+                                              </style>
+      
+      
+    <%else%>
+    <h1>BarMania</h1>
+    <p><a href="/signup">Signup</a> / <a href="/login">Login</a></p>
+    <%=yield%>
+    <%end%>
+      
+
+    </body>
+
+</html>

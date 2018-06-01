@@ -1,0 +1,8 @@
+
+<%if current_user.tabulation == nil%>
+  <%current_user.tabulation = 0%>
+<%else%>
+  <%=current_user.tabulation%>
+<%end%>
+
+<h2>Tabulation: $<%=current_user.tabulation%></h2>
