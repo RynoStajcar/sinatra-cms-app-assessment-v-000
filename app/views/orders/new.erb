@@ -1,0 +1,4 @@
+<%@order.each do |key, value|%>
+    <%Drink.find_by_id(key.to_i)%>
+<%binding.pry%>
+<%end%>

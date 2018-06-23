@@ -4,4 +4,9 @@ class DrinkController < ApplicationController
     erb :'/drinks/list'
   end
 
+  post '/drinks/order' do
+    @order = params[:drinks]
+    erb :'/orders/new'
+  end
+
 end

@@ -44,10 +44,6 @@ class CustomerController < ApplicationController
     erb :'/customers/show'
   end
 
-  post '/customers/add' do
-    binding.pry
-  end
-
   get '/logout' do
     if logged_in?
     session.clear
