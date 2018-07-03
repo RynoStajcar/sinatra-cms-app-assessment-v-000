@@ -1,6 +1,5 @@
 class Customer < ActiveRecord::Base
 
-  belongs_to :server
   has_many :orders
   has_many :drinks, :through => :orders
 

@@ -1,6 +1,6 @@
 class Drink < ActiveRecord::Base
 
-  belongs_to :orders
+  belongs_to :order
 
   def slug
     name.downcase.gsub(" ","-")

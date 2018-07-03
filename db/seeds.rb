@@ -1,5 +1,3 @@
-Server.create(username: "Brad", password_digest: "in434jklmon" )
-Server.create(username: "David", password_digest: "in434jklmon" )
 Drink.create(name: "IPA-400", price: 6.00)
 Drink.create(name: "Traveler", price: 3.50)
 Drink.create(name: "Red Ale", price: 2.00)
