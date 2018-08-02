@@ -1,8 +1,16 @@
+<%@tab = []%>
 
-<%if current_user.tabulation == nil%>
-  <%current_user.tabulation = 0%>
-<%else%>
-  <%=current_user.tabulation%>
+<%current_user.drinks.each do |drink|%>
+  <%@tab << drink.price%>
+<%end%>
+
+<%current_user.tabulation = @tab.inject(0){|sum,x| sum+x}%>
+
+<%current_user.drinks.each do |drink|%>
+  Order <%=drink.orders.ids.first%><br>
+  <%=drink.name%> $<%=drink.price%><br>
 <%end%>
 
 <h2>Tabulation: $<%=current_user.tabulation%></h2>
+
+<a href="/payment">Pay Bill</a>

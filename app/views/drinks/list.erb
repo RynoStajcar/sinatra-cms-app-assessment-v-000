@@ -1,10 +1,19 @@
 
-
+<!doctype html>
+<head>
+<link href="../../css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div id="social">
 
 <h2>Select drinks to order below:</h2>
 <form action='/drinks/order' method='POST'>
 <%Drink.all.each do |drink|%>
-<%=drink.name%> - $<%=drink[:price]%>  <input type="number" name="drinks[<%=drink.id%>]" id="<%=drink[:id]%>" value="0"></input></br>
+<%=drink.name%> - $<%=drink[:price]%>  <input type="submit" value="Purchase" name="drinks[<%=drink.name%>]" id="<%=drink[:id]%>"></input></br>
 <%end%> 
-<input type="submit" value="Submit Order">
+
 </form>
+
+<p class="test">This is a table</p>
+</body>
+</html>

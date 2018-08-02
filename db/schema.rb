@@ -22,7 +22,6 @@ ActiveRecord::Schema.define(version: 2018_05_18_171629) do
   create_table "drinks", force: :cascade do |t|
     t.string "name"
     t.float "price"
-    t.integer "order_id"
   end
 
   create_table "orders", force: :cascade do |t|

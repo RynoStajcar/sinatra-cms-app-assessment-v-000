@@ -1,6 +1,7 @@
 class Drink < ActiveRecord::Base
 
-  belongs_to :order
+  has_many :orders
+  has_many :customers, through: :orders
 
   def slug
     name.downcase.gsub(" ","-")
@@ -10,4 +11,4 @@ class Drink < ActiveRecord::Base
     Drink.all.find{|drink| drink.slug == slug}
   end
 
-end
+end 

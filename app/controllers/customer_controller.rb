@@ -55,6 +55,15 @@ class CustomerController < ApplicationController
   get '/account' do
     erb :'/customers/account'
   end
+
+  get '/payment' do
+    @orders = Order.where(customer_id: current_user.id)
+    @orders.each do |order|
+      order.destroy
+    end
+    
+  redirect to '/customers'
+  end
   
 
 

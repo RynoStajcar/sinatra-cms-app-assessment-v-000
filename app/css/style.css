@@ -1,0 +1,32 @@
+
+
+.alignleft {
+float: left;
+}
+.alignright {
+float: right;
+}
+.aligncenter {
+text-align: center;
+}
+
+.test {
+    color: green; margin:50px;
+}
+
+.shadow {
+    box-shadow: 0 3px 10px #333;
+  }
+
+p {
+    font-size: 25em;
+    color: red;
+}
+
+#social {
+    position: fixed;
+  top: 163px;
+  right: 20px;
+  width: 40px;
+  z-index: 2;
+}

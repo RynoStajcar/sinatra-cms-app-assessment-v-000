@@ -1,6 +1,6 @@
 class Order < ActiveRecord::Base
 
   belongs_to :customer
-  has_many :drinks
-
+  belongs_to :drink
+  
 end
