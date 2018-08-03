@@ -3,32 +3,78 @@
 
 <html>
 
-  <head>
-  <meta charset="UTF-8">
-  <link href="css/style.css" rel="stylesheet" type="text/css">
+    <head>
+    
+    <meta charset="UTF-8">
 
     <title>Mobile Order</title>
-  </head>
+    
+      <style>
+      .alignleft {
+        float: left;
+        width: 20%;
+        background: yellow;
+      }
+    
+      .alignright {
+        float: right;
+        width: 20%;
+        background: red;
+      }
+      
+      .aligncenter {
+        float: left;
+        text-align: center;
+        background: orange;
+        width: 60%;
+      }
+      
+      h1 {
+        color: black; font-size: 50px;
+        text-align: center;
+        background: grey;
+      }
+
+      .center {
+        text-align: center;
+      }
+
+    </style>
+
+    </head>
+
   <body>
     <%if logged_in?%>
-
      <div>
-     <section>
-     <h1 class="aligncenter">BarMania</h1>
-      <p class="alignright">
-      <%=current_user.username%></br>
-      </br>
-      <a href="/customers">Home</a></br>
-      <a href="/account">Account</a></br>
-      <a href="/logout">Logout</a>
-      </p>
-     </section>
-     </div>
-      <%=yield%>
+      <h1>BarMania</h1>
       
+      <div class="alignleft">
+      <h2 class="center">
+        Menu
+      </h2>
+      <p class="center">
+        <a href="/drinks/list">Drink Menu</a>
+      </p>
+      </div>
+
+      <div class="alignright">
+        <p class="center">
+        Hello, <%=current_user.username%></br>
+        </br>
+        <a href="/customers">Home</a></br>
+        <a href="/account">Account</a></br>
+        <a href="/logout">Logout</a>
+        </p>
+      </div>
+      </div>
+      
+      <div class="aligncenter">
+      <%=yield%>
+      </div>
     <%else%>
 
-    <%=yield%>
+      no luck
+
     <%end%>
       
 
