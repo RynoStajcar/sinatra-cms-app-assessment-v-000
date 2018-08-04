@@ -14,7 +14,7 @@ class CustomerController < ApplicationController
     if logged_in?
       redirect to '/customers/show'
     else
-      erb :'/customers/login'
+      erb :'/'
     end
   end
 
@@ -36,7 +36,7 @@ class CustomerController < ApplicationController
       
       redirect to '/customers'
     else
-      redirect to '/login'
+      redirect to '/'
     end
   end
 
@@ -45,26 +45,34 @@ class CustomerController < ApplicationController
   end
 
   get '/logout' do
-    if logged_in?
+    if logged_in? && current_user.tabulation == nil || current_user.tabulation == 0
     session.clear
-    redirect to '/login'
-    else redirect to '/'
+    redirect to '/'
+    elsif logged_in?
+      redirect to '/account'
+    else 
+      redirect to '/'
     end
   end
 
   get '/account' do
+    if logged_in?
     erb :'/customers/account'
+    else
+      redirect to '/'
+    end
   end
 
   get '/payment' do
+    if logged_in?
     @orders = Order.where(customer_id: current_user.id)
     @orders.each do |order|
       order.destroy
     end
-    
-  redirect to '/customers'
-  end
-  
+    else
+      redirect to '/'
+    end
+  end  
 
 
   end
