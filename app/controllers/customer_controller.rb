@@ -1,6 +1,8 @@
+require 'rack-flash'
+
 class CustomerController < ApplicationController
 
-  
+  use Rack::Flash
 
   get '/signup' do
     if logged_in?
@@ -49,6 +51,7 @@ class CustomerController < ApplicationController
     session.clear
     redirect to '/'
     elsif logged_in?
+      flash[:message] = "Please pay your tab first"
       redirect to '/account'
     else 
       redirect to '/'
@@ -71,7 +74,7 @@ class CustomerController < ApplicationController
     end
       redirect to '/account'
     else
-      flash[:message] = "Please pay your tab first"
+      redirect to '/'
     end
   end  
 
