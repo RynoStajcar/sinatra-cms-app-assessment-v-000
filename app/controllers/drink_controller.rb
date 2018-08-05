@@ -7,11 +7,8 @@ class DrinkController < ApplicationController
   post '/drinks/order' do
     @drink = Drink.find_by_name(params[:drinks].keys[0])
     order = Order.create(customer_id: current_user.id, drink_id: @drink.id)
-    redirect to '/drink'
+    redirect to '/account'
   end
 
-  get '/drink' do
-    erb :'/orders/new'
-  end
 
 end

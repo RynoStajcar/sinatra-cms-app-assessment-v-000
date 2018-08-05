@@ -69,8 +69,9 @@ class CustomerController < ApplicationController
     @orders.each do |order|
       order.destroy
     end
+      redirect to '/account'
     else
-      redirect to '/'
+      flash[:message] = "Please pay your tab first"
     end
   end  
 
