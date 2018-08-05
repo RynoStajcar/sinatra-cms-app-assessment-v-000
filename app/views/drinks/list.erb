@@ -16,8 +16,8 @@
 <h2>Select a drink to order below:</h2>
 <form action='/drinks/order' method='POST'>
 <%Drink.all.each do |drink|%>
-<li><p class="center"><%=drink.name%> - $<%=drink[:price]%>
-<input type="submit" value="Purchase" name="drinks[<%=drink.name%>]" id="<%=drink[:id]%>"></input></p></li>
+<p class="center"><%=drink.name%> - $<%=drink[:price]%>
+<input type="submit" value="Purchase" name="drinks[<%=drink.name%>]" id="<%=drink[:id]%>"></input></p>
 <%end%> 
 </form>
 

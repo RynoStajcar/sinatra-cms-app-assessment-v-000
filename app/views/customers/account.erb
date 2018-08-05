@@ -7,8 +7,8 @@
 <%current_user.tabulation = @tab.inject(0){|sum,x| sum+x}%>
 <%current_user.save%>
 <%current_user.drinks.each do |drink|%>
-  Order <%=drink.orders.ids.first%><br>
-  <%=drink.name%> $<%=drink.price%><br>
+  <a href="/order_list">Order <%=drink.orders.ids.first%><br></a>
+  <%=drink.name%> $<%=drink.price%><br></br>
 <%end%>
 
 <h2>Tabulation: $<%=current_user.tabulation%></h2>
