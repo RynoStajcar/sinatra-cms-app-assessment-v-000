@@ -24,7 +24,7 @@ class CustomerController < ApplicationController
     if params[:username] == "" || params[:email] == "" || params[:password] == ""
       redirect to '/signup'
     else
-      @user = User.create(params)
+      @customer = Customer.create(params)
       session[:customer_id] = @customer.id
       redirect to '/customers'
     end
@@ -35,7 +35,6 @@ class CustomerController < ApplicationController
  
     if customer &&customer.authenticate(params[:password])
       session[:customer_id] = customer[:id]
-      
       redirect to '/customers'
     else
       redirect to '/'
