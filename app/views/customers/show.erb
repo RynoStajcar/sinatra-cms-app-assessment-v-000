@@ -18,13 +18,13 @@
 <p>Below are people who are currently on the app, click on their name to checkout what they are drinking.</p>
 
 <%Customer.all.each do |customer|%>
+
     <%if customer.drinks.any?%>
-    
-      <u><%=customer.username%></u>
-    <%customer.drinks.each do |drink|%><br>
-        <%=drink.name%>
-        <%end%>
+    <li class="alignleft">
+    <a href="/profile/<%=customer.username%>"><%=customer.username%></a>
+    </li><br>
     <%end%>
+
  <%end%>
 
 </html>

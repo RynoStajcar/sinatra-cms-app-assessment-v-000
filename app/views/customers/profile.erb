@@ -1,0 +1,17 @@
+<!doctype html>
+<head>
+<link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+<% @customer = Customer.find_by_username(params[:slug]) %>
+
+<h3><%=@customer.username%></h3>
+
+<%@customer.drinks.each do |drink|%>
+    <li class="alignleft"><a href="/drinks/<%=drink.name%>"><%=drink.name%></a></li><br>
+<%end%>
+
+
+</body>
+</html>

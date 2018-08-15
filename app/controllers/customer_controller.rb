@@ -72,6 +72,10 @@ class CustomerController < ApplicationController
     end
   end
 
+  get '/profile/:slug' do
+    erb :'/customers/profile'
+  end
+
   get '/payment' do
     if logged_in?
     @orders = Order.where(customer_id: current_user.id)
