@@ -53,15 +53,15 @@ class CustomerController < ApplicationController
   end
 
   get '/logout' do
-    if logged_in? && current_user.tabulation == nil || current_user.tabulation == 0
+    #if logged_in? && current_user.tabulation == nil || current_user.tabulation == 0
     session.clear
     redirect to '/'
-    elsif logged_in?
-      flash[:message] = "Please pay your tab first"
-      redirect to '/account'
-    else 
-      redirect to '/'
-    end
+    #elsif logged_in?
+    #   flash[:message] = "Please pay your tab first"
+    #   redirect to '/account'
+    # else 
+    #   redirect to '/'
+    #end
   end
 
   get '/account' do

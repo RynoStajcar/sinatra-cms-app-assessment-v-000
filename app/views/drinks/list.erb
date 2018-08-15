@@ -1,22 +1,14 @@
 
 <!doctype html>
 <head>
-    <style>
-        .center {
-           text-align: left; 
-        }
-        .right {
-          
-        }
-    </style>
+<link rel="stylesheet" type="text/css" href="../style.css">
 </head>
 <body>
-<div id="social">
 
 <h2>Select a drink to order below:</h2>
 <form action='/drinks/order' method='POST'>
 <%Drink.all.each do |drink|%>
-<p class="center"><%=drink.name%> - $<%=drink[:price]%>
+<p class="center"><a href="/drinks/<%=drink.name%>"><%=drink.name%></a> - $<%=drink[:price]%>
 <input type="submit" value="Purchase" name="drinks[<%=drink.name%>]" id="<%=drink[:id]%>"></input></p>
 <%end%> 
 </form>

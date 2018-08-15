@@ -10,5 +10,8 @@ class DrinkController < ApplicationController
     redirect to '/account'
   end
 
+  get '/drinks/:slug' do
+    erb :'/drinks/drink_page'
+  end
 
 end
