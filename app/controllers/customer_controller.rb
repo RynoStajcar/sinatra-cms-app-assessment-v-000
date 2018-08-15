@@ -22,11 +22,18 @@ class CustomerController < ApplicationController
 
   post '/signup' do
     if params[:username] == "" || params[:email] == "" || params[:password] == ""
+      flash[:message] = "Fill in all fields"
       redirect to '/signup'
-    else
+    elsif params[:email].include?("@") == false || params[:email].include?(".com") == false
+      flash[:message] = "Enter a valid e-mail address"
+      redirect to '/signup'
+    elsif Customer.find_by_email(params[:email]) == nil
       @customer = Customer.create(params)
       session[:customer_id] = @customer.id
       redirect to '/customers'
+    else
+      flash[:message] = "Email already taken"
+      redirect to '/signup'
     end
   end
 

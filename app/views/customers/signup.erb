@@ -1,5 +1,9 @@
 Signup
 
+<%if flash.has?(:message)%>
+  <h2><u>****<%=flash[:message]%>****</u></h2>
+<%end%>
+
 <form method="POST" action="/signup">
 
     <label>Email</label>
