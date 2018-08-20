@@ -19,12 +19,12 @@ class CustomerController < ApplicationController
     elsif params[:email].include?("@") == false || params[:email].include?(".com") == false
       flash[:message] = "Enter a valid e-mail address"
       redirect to '/signup'
-    elsif Customer.find_by_email(params[:email]) == nil
+    elsif Customer.find_by_email(params[:email]) == nil && Customer.find_by_username(params[:username]) == nil
       @customer = Customer.create(params)
       session[:customer_id] = @customer.id
       redirect to '/customers'
     else
-      flash[:message] = "Email already taken"
+      flash[:message] = "Email and/or Username is already taken"
       redirect to '/signup'
     end
   end
