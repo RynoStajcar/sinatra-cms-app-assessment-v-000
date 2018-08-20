@@ -12,14 +12,6 @@ class CustomerController < ApplicationController
     end
   end
 
-  get '/login' do 
-    if logged_in?
-      redirect to '/customers/show'
-    else
-      erb :'/'
-    end
-  end
-
   post '/signup' do
     if params[:username] == "" || params[:email] == "" || params[:password] == ""
       flash[:message] = "Fill in all fields"
@@ -34,6 +26,14 @@ class CustomerController < ApplicationController
     else
       flash[:message] = "Email already taken"
       redirect to '/signup'
+    end
+  end
+
+  get '/login' do 
+    if logged_in?
+      redirect to '/customers/show'
+    else
+      erb :'/'
     end
   end
 
@@ -75,18 +75,5 @@ class CustomerController < ApplicationController
   get '/profile/:slug' do
     erb :'/customers/profile'
   end
-
-  get '/payment' do
-    if logged_in?
-    @orders = Order.where(customer_id: current_user.id)
-    @orders.each do |order|
-      order.destroy
-    end
-      redirect to '/account'
-    else
-      redirect to '/'
-    end
-  end  
-
 
   end

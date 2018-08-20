@@ -1,20 +1,24 @@
 .alignleft {
-  float: left;
-  width: 20%;
-  background: yellow;
+  position: absolute;
+  width: 15%;
+  left: 0;
+  background: rgb(182, 182, 182);
+  
 }
 
 .alignright {
-  float: right;
-  width: 20%;
-  background: red;
+  position: absolute;
+  width: 15%;
+  right: 0;
+  background: rgb(182, 182, 182);
 }
 
 .aligncenter {
-  float: left;
+  position: absolute;
+  left: 20%;
   text-align: center;
-  background: orange;
   width: 60%;
+  border: 10px solid white;
 }
 
 h1 {
@@ -26,3 +30,9 @@ h1 {
 .center {
   text-align: center;
 }
+
+.left {
+  text-align: left;
+  
+}
+

@@ -1,20 +1,29 @@
 <%@tab = []%>
 
-<%if flash.has?(:message)%>
-  <h2><u>****<%=flash[:message]%>****</u></h2>
-<%end%>
-</br>
 <%current_user.drinks.each do |drink|%>
   <%@tab << drink.price%>
 <%end%>
 
 <%current_user.tabulation = @tab.inject(0){|sum,x| sum+x}%>
+
 <%current_user.save%>
-<%current_user.drinks.each_with_index do |drink, index|%>
-  <a href="/order/<%=current_user.orders[index].id%>">Order <%=current_user.orders[index].id%><br></a>
-  <%=drink.name%> $<%=drink.price%><br></br>
+
+<%if flash.has?(:message)%>
+  <h2><u>****<%=flash[:message]%>****</u></h2>
 <%end%>
+
+</br>
 
 <h2>Tabulation: $<%=current_user.tabulation%></h2>
 
 <a href="/payment">Pay Bill</a>
+
+<br></br>
+
+<%current_user.drinks.each_with_index do |drink, index|%>
+  <p class="left">
+  <a href="/order/<%=current_user.orders[index].id%>">Order <%=current_user.orders[index].id%><br></a>
+  <%=drink.name%> $<%=drink.price%><br></br>
+  </p>
+<%end%>
+

@@ -3,52 +3,71 @@
 
 <html>
 
-    <head>
+  <head>
     <link rel="stylesheet" type="text/css" href="style.css">
-
     <meta charset="UTF-8">
-
     <title>Mobile Order</title>
-
-    </head>
+  </head>
 
     <h1>BarMania</h1>
 
   <body>
     <%if logged_in?%>
-     <div>
-    
+
       <div class="alignleft">
-      <h2 class="center">
-        Menu
-      </h2>
-      <p class="center">
-        <a href="/drinks/list">Drink Menu</a>
-      </p>
+        
+        <h2 class="center">
+          Menu
+        </h2>
+        
+        <p class="center">
+          <a href="/drinks/list">Drink Menu</a>
+        </p>
+        
+        <br></br>
+        
+        <h2 class="center">
+          Current Users
+        </h2>
+
+        <p>
+        <%Customer.all.each do |customer|%>
+          <%if customer.drinks.any?%>
+            <li class="center">
+              <a href="/profile/<%=customer.username%>"><%=customer.username%></a>
+            </li><br>
+          <%end%>
+        <%end%>
+        </p>
+
       </div>
 
       <div class="alignright">
+        
         <p class="center">
-        Hello, <%=current_user.username%></br>
-        </br>
-        <a href="/customers">Home</a></br>
-        <a href="/account">Account</a></br>
-        <a href="/logout">Logout</a>
+          Hello, <%=current_user.username%></br></br>
+          <a href="/customers">Home</a></br>
+          <a href="/account">Account</a></br>
+          <a href="/logout">Logout</a>
         </p>
-      </div>
+
       </div>
       
       <div class="aligncenter">
-      <%=yield%>
+
+        <%=yield%>
+      
       </div>
+
     <%else%>
+      
       <div class="center">
-      <%=yield%>
+        
+        <%=yield%>
+
       </div>
 
     <%end%>
-      
-
-    </body>
+  </body>
 
 </html>
