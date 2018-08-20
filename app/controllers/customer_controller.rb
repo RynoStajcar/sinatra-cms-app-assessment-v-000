@@ -4,6 +4,18 @@ class CustomerController < ApplicationController
 
   use Rack::Flash
 
+  get '/' do
+    erb :'/index'
+  end
+
+  get '/customers' do
+    if logged_in?
+      erb :'/customers/show'
+    else
+       redirect to '/'
+    end
+  end
+
   get '/signup' do
     if logged_in?
       redirect to '/customers/show'
@@ -20,7 +32,7 @@ class CustomerController < ApplicationController
       flash[:message] = "Enter a valid e-mail address"
       redirect to '/signup'
     elsif Customer.find_by_email(params[:email]) == nil && Customer.find_by_username(params[:username]) == nil
-      @customer = Customer.create(params)
+      @customer = Customer.create(username: params[:username], email: params[:email], password: params[:password_digest])
       session[:customer_id] = @customer.id
       redirect to '/customers'
     else
@@ -40,17 +52,15 @@ class CustomerController < ApplicationController
   post '/login' do
     customer = Customer.find_by(:username => params[:username])
  
-    if customer &&customer.authenticate(params[:password])
+    if customer && customer.authenticate(params[:password])
       session[:customer_id] = customer[:id]
       redirect to '/customers'
     else
+      flash[:message] = "Incorrect Username/Password"
       redirect to '/'
     end
   end
 
-  get '/customers' do
-    erb :'/customers/show'
-  end
 
   get '/logout' do
     #if logged_in? && current_user.tabulation == nil || current_user.tabulation == 0

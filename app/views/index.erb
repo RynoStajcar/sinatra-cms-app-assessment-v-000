@@ -1,4 +1,6 @@
-
+<%if flash.has?(:message)%>
+  <h2><u>****<%=flash[:message]%>****</u></h2>
+<%end%>
 <div>
     Log in
 
