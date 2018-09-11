@@ -1,7 +1,6 @@
 <%@order = Order.find_by_id(params[:id].to_i)%>
 <%@drink = Drink.find_by_id(@order.drink_id)%>
 
-
 <h3>Order <%=@order.id%></h3>
 
 <br>

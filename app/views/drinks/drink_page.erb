@@ -1,14 +1,5 @@
-<!doctype html>
-    <head>
-        <link rel="stylesheet" type="text/css" href="../style.css">
-    </head>
-
-    <body>
-        <%@drink = Drink.find_by_name(params[:slug]) %>
+<%@drink = Drink.find_by_name(params[:slug]) %>
         
-        <h3><%=@drink.name%></h3>
+<h3><%=@drink.name%></h3>
    
-        <p>$<%=@drink.price%></p>
-    </body>
-    
-</html>
+<p>$<%=@drink.price%></p>

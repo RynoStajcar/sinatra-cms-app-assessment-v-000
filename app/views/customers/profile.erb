@@ -1,17 +1,8 @@
-<!doctype html>
 
-    <head>
-        <link rel="stylesheet" type="text/css" href="../style.css">
-    </head>
+<%@customer = Customer.find_by_username(params[:slug]) %>
 
-    <body>
-        <%@customer = Customer.find_by_username(params[:slug]) %>
+<h3><%=@customer.username%></h3>
 
-        <h3><%=@customer.username%></h3>
-
-        <%@customer.drinks.each do |drink|%>
-            <li class="left"><a href="/drinks/<%=drink.name%>"><%=drink.name%></a></li><br>
-        <%end%>
-    </body>
-
-</html>
+<%@customer.drinks.each do |drink|%>
+    <li class="left"><a href="/drinks/<%=drink.name%>"><%=drink.name%></a></li><br>
+<%end%>

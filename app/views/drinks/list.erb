@@ -1,19 +1,9 @@
 
-<!doctype html>
+<h2>Select a drink to order below:</h2>
 
-    <head>
-        <link rel="stylesheet" type="text/css" href="../style.css">
-    </head>
-
-    <body>
-        <h2>Select a drink to order below:</h2>
-
-        <form action='/drinks/order' method='POST'>
-            <%Drink.all.each do |drink|%>
-                <p class="left"><a href="/drinks/<%=drink.name%>"><%=drink.name%></a> - $<%=drink[:price]%>
-                <input type="submit" value="Purchase" name="drinks[<%=drink.name%>]" id="<%=drink[:id]%>"></input></p>
-            <%end%> 
-        </form>
-    </body>
-
-</html>
+<form action='/drinks/order' method='POST'>
+    <%Drink.all.each do |drink|%>
+        <p class="left"><a href="/drinks/<%=drink.name%>"><%=drink.name%></a> - $<%=drink[:price]%>
+        <input type="submit" value="Purchase" name="drinks[<%=drink.name%>]" id="<%=drink[:id]%>"></input></p>
+    <%end%> 
+</form>

@@ -5,7 +5,11 @@ class CustomerController < ApplicationController
   use Rack::Flash
 
   get '/' do
+    if !logged_in?
     erb :'/index'
+    else
+      redirect to '/customers'
+    end
   end
 
   get '/customers' do
