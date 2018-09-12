@@ -86,6 +86,11 @@ class CustomerController < ApplicationController
     end
   end
 
+  get '/profile/:slug/edit' do
+    
+      erb :'/customers/edit'
+  end
+
   get '/profile/:slug' do
     erb :'/customers/profile'
   end
