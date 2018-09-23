@@ -5,6 +5,7 @@ class CreateCustomersTable < ActiveRecord::Migration[5.2]
       t.string :username
       t.string :password_digest
       t.integer :tabulation
+      t.string :created_drink
     end
   end
 end
